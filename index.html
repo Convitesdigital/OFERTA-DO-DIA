@@ -176,10 +176,12 @@
             font-size: 1rem;
         }
 
-        /* CTA Button com Efeito de Vibração */
+        /* CTA Button com Efeito de Vibração e Camada de Segurança Anti-Obstrução */
         .cta-container {
             text-align: center;
             margin-bottom: 60px;
+            position: relative;
+            z-index: 1000; /* Mantém o botão acima de qualquer elemento de layout comum */
         }
 
         .cta-btn {
@@ -201,22 +203,22 @@
 
         .cta-btn:hover {
             background-color: #059669;
-            animation: none; /* Para a vibração ao passar o mouse para facilitar o clique */
+            animation: none;
             transform: translateY(-3px);
         }
 
-        /* Social Proof Pop-up */
+        /* Social Proof Pop-up Posicionado no Topo Direito (Garante Zero Obstrução ao Botão na Base) */
         #sales-popup {
             position: fixed;
-            bottom: 25px;
-            left: 20px;
+            top: 60px;
+            right: 20px;
             background: var(--bg-card);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-left: 4px solid var(--accent);
             padding: 14px 18px;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            z-index: 999;
+            z-index: 900;
             font-size: 0.88rem;
             max-width: 320px;
             display: flex;
@@ -253,8 +255,9 @@
                 height: 180px;
             }
             #sales-popup {
-                left: 10px;
+                top: 55px;
                 right: 10px;
+                left: 10px;
                 max-width: none;
             }
         }
@@ -267,7 +270,7 @@
         🎉 Painel Exclusivo de Resgate de Bônus — Oferta Especial do Dia
     </div>
 
-    <!-- Social Proof Pop-up com Ícone Realista de Venda -->
+    <!-- Social Proof Pop-up com Ícone Realista de Venda (Posicionado no Topo para evitar qualquer obstrução ao botão) -->
     <div id="sales-popup">
         <div class="sales-icon">🛍️</div>
         <div>
@@ -296,8 +299,6 @@
             <div class="bonus-card">
                 <div class="bonus-image-box">
                     <span>[FOTO DO FORMADOR / EDMILSON ELIAS]</span>
-                    <!-- Para inserir foto real, substitua o span acima por:
-                    <img src="URL_DA_FOTO_DO_FORMADOR.jpg" alt="Edmilson Elias Zandamela"> -->
                 </div>
                 <div class="bonus-info">
                     <h3>Bônus 1: Aulas de Marketing e Gestão de Tráfego Pago</h3>
@@ -310,8 +311,6 @@
             <div class="bonus-card">
                 <div class="bonus-image-box">
                     <span>[MOCKUP DO EBOOK: MARKETING DIGITAL]</span>
-                    <!-- Para inserir imagem real:
-                    <img src="URL_MOCKUP_MARKETING_DIGITAL.jpg" alt="Ebook Marketing Digital"> -->
                 </div>
                 <div class="bonus-info">
                     <h3>Bônus 2: Acesso ao Ebook sobre Marketing Digital</h3>
@@ -323,8 +322,6 @@
             <div class="bonus-card">
                 <div class="bonus-image-box">
                     <span>[MOCKUP DO MANUAL: EMPREENDEDORISMO DIGITAL]</span>
-                    <!-- Para inserir imagem real:
-                    <img src="URL_MOCKUP_EMPREENDEDORISMO.jpg" alt="Manual Empreendedorismo Digital"> -->
                 </div>
                 <div class="bonus-info">
                     <h3>Bônus 3: Acesso ao Manual sobre Empreendedorismo Digital</h3>
@@ -336,8 +333,6 @@
             <div class="bonus-card">
                 <div class="bonus-image-box">
                     <span>[MOCKUP DO MANUAL: IDEIAS DE NEGÓCIOS]</span>
-                    <!-- Para inserir imagem real:
-                    <img src="URL_MOCKUP_IDEIAS.jpg" alt="Manual Ideias de Negócios"> -->
                 </div>
                 <div class="bonus-info">
                     <h3>Bônus 4: Acesso ao Manual sobre Ideias de Negócios</h3>
@@ -347,14 +342,38 @@
 
         </section>
 
-        <!-- CTA Final de Resgate com o Botão Vibrando -->
+        <!-- CTA Final de Resgate com o Botão Vibrando e Protegido -->
         <div class="cta-container">
             <a href="#" class="cta-btn">Resgatar Todos os Bônus Agora</a>
         </div>
     </div>
 
-    <!-- JavaScript para Timer de 15 Minutos e 20 Variações de Social Proof -->
+    <!-- JavaScript para Timer, Som de Notificação e Social Proof -->
     <script>
+        /* Gerador de Som Sintetizado (Beep/Chime) via Web Audio API para as Notificações */
+        function playNotificationSound() {
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(587.33, audioCtx.currentTime); // Nota D5
+                oscillator.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.1); // Sobe para A5
+
+                gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+
+                oscillator.start();
+                oscillator.stop(audioCtx.currentTime + 0.3);
+            } catch (e) {
+                // Navegadores bloqueiam áudio automático antes de interação; tratativa segura.
+            }
+        }
+
         /* Timer Regressivo de 15 Minutos */
         let time = 15 * 60;
         const timerDisplay = document.getElementById('timer');
@@ -407,6 +426,7 @@
             setTimeout(() => {
                 popupText.textContent = variations[index];
                 popupText.style.opacity = 1;
+                playNotificationSound(); // Dispara o som sutil a cada nova notificação
             }, 500);
         }, 6000);
     </script>
