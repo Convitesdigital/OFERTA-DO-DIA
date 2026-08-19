@@ -4,6 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resgate de Bônus Exclusivos - Além do Salário</title>
+
+
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1088369860428273');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1088369860428273&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code --> 
+
+
+<script>
+  // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
+  const link = 'https://edmisongithub.github.io/MOZCOMBU/';
+
+  function setBackRedirect(url) {
+    let urlBackRedirect = url;
+    urlBackRedirect = urlBackRedirect =
+      urlBackRedirect.trim() +
+      (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+      document.location.search.replace('?', '').toString();
+
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+
+    window.addEventListener('popstate', () => {
+      console.log('onpopstate', urlBackRedirect);
+      setTimeout(() => {
+        location.href = urlBackRedirect;
+      }, 1);
+    });
+  }
+
+  setBackRedirect(link);
+</script>
+
+
+
     <style>
         :root {
             --primary: #f59e0b;
@@ -297,9 +346,11 @@
             
             <!-- Bônus 1 -->
             <div class="bonus-card">
-                <div class="bonus-image-box">
-                    <span>[FOTO DO FORMADOR / EDMILSON ELIAS]</span>
+               
+                   <div class="bonus-image-box">
+                    <img src="PERFIL.jpg" alt="Nome do Autor" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
                 </div>
+                
                 <div class="bonus-info">
                     <h3>Bônus 1: Aulas de Marketing e Gestão de Tráfego Pago</h3>
                     <span class="instructor-info">Formador: Edmilson Elias Zandamela (Formado em Eng. Informática, Marketing e Gestão de Tráfego Pago)</span>
@@ -309,34 +360,35 @@
 
             <!-- Bônus 2 -->
             <div class="bonus-card">
+               
                 <div class="bonus-image-box">
-                    <span>[MOCKUP DO EBOOK: MARKETING DIGITAL]</span>
+                    <img src="29.png" alt="Nome do Autor" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
                 </div>
                 <div class="bonus-info">
                     <h3>Bônus 2: Acesso ao Ebook sobre Marketing Digital</h3>
-                    <p>O guia definitivo para posicionar sua marca pessoal ou negócio no ambiente online, construindo autoridade sólida e gerando demanda contínua pelos seus produtos ou serviços.</p>
+                    <p>O guia definitivo para posicionar sua marca pessoal ou negócio no ambiente online, construindo autoridade sólida e gerando demanda contínua pelos seus produtos ou serviços (AUTOR: EDMILSON ELIAS ZANDAMELA)</p>
                 </div>
             </div>
 
             <!-- Bônus 3 -->
             <div class="bonus-card">
-                <div class="bonus-image-box">
-                    <span>[MOCKUP DO MANUAL: EMPREENDEDORISMO DIGITAL]</span>
+                 <div class="bonus-image-box">
+                    <img src="62.png" alt="Nome do Autor" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
                 </div>
                 <div class="bonus-info">
                     <h3>Bônus 3: Acesso ao Manual sobre Empreendedorismo Digital</h3>
-                    <p>Descubra os pilares fundamentais para estruturar operações digitais escaláveis, automatizadas e altamente rentáveis a partir do conforto da sua casa em Moçambique.</p>
+                    <p>Descubra os pilares fundamentais para estruturar operações digitais escaláveis, automatizadas e altamente rentáveis a partir do conforto da sua casa em Moçambique (AUTOR: EDMILSON ELIAS ZANDAMELA)</p>
                 </div>
             </div>
 
             <!-- Bônus 4 -->
-            <div class="bonus-card">
-                <div class="bonus-image-box">
-                    <span>[MOCKUP DO MANUAL: IDEIAS DE NEGÓCIOS]</span>
+            <div class="bonus-card">           
+                  <div class="bonus-image-box">
+                    <img src="63.png" alt="Nome do Autor" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
                 </div>
                 <div class="bonus-info">
                     <h3>Bônus 4: Acesso ao Manual sobre Ideias de Negócios</h3>
-                    <p>Uma curadoria exclusiva contendo dezenas de modelos de negócios validados e de baixo investimento inicial para você começar a faturar no curto prazo.</p>
+                    <p>Uma curadoria exclusiva contendo dezenas de modelos de negócios validados e de baixo investimento inicial para você começar a faturar no curto prazo. (AUTOR: EDMILSON ELIAS ZANDAMELA) </p>
                 </div>
             </div>
 
