@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resgate de Bônus Exclusivos - Além do Salário</title>
+    
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1088369860428273');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1088369860428273&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code --> 
+    
+    <style>
+        :root {
+            --primary: #f59e0b;
+            --primary-dark: #d97706;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #10b981;
+            --whatsapp: #25d366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #000;
+            text-align: center;
+            padding: 12px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Botão WhatsApp Fixo */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: var(--whatsapp);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1001;
+            transition: transform 0.2s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 40px 0 20px 0;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--text-main);
+            max-width: 900px;
+        }
+
+        h1 span {
+            color: var(--primary);
+        }
+
+        .subheadline {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+
+        /* Animação de Vibração para o Timer */
+        @keyframes vibrate {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        .timer-container {
+            background: rgba(245, 158, 11, 0.15);
+            border: 2px solid var(--primary);
+            padding: 15px 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            display: inline-block;
+            animation: vibrate 0.5s infinite ease-in-out;
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+        }
+
+        .timer-container p {
+            font-size: 0.95rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        #timer {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--text-main);
+            letter-spacing: 2px;
+        }
+
+        /* Grid de Bônus */
+        .bonus-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .bonus-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 30px;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Placeholder de Imagem para Bônus / Mockup / Formador */
+        .bonus-image-box {
+            background: #0b1120;
+            border: 2px dashed var(--text-muted);
+            border-radius: 12px;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bonus-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .bonus-info h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .bonus-info .instructor-info {
+            font-size: 0.95rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .bonus-info p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* CTA Button */
+        .cta-container {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .cta-btn {
+            background-color: var(--accent);
+            color: #fff;
+            padding: 20px 45px;
+            font-size: 1.25rem;
+            font-weight: 800;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 25px rgba(16, 185, 129, 0.4);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            background-color: #059669;
+        }
+
+        /* Social Proof Pop-up */
+        #sales-popup {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--bg-card);
+            border-left: 4px solid var(--accent);
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            z-index: 1000;
+            font-size: 0.9rem;
+            max-width: 320px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Responsividade */
+        @media(max-width: 768px) {
+            h1 { font-size: 1.7rem; }
+            .subheadline { font-size: 1rem; }
+            .bonus-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 20px;
+            }
+            .bonus-image-box {
+                max-width: 240px;
+                margin: 0 auto;
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botão WhatsApp Fixo -->
+    <a href="https://wa.me/258847648786?text=Olá!%20Quero%20resgatar%20os%20bônus%20do%20manual%20Além%20do%20Salário." target="_blank" class="whatsapp-float">
+        💬 Suporte WhatsApp
+    </a>
+
+    <!-- Top Banner -->
+    <div class="top-banner">
+        🎉 Painel Exclusivo de Resgate de Bônus — Oferta Especial do Dia
+    </div>
+
+    <!-- Social Proof Pop-up -->
+    <div id="sales-popup">
+        <div style="background: var(--accent); width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0;"></div>
+        <div>
+            <strong style="display: block; font-size: 0.75rem; color: var(--accent);">Resgate Recente</strong>
+            <span id="popup-text">Helder Vasco de Maputo acabou de Obter o bónus há 5 minutos.</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <h1>Você Desbloqueou o Acesso aos <span>4 Bônus Exclusivos!</span></h1>
+            <p class="subheadline">Confira abaixo todos os materiais complementares e mentorias que acompanham o seu manual "Além do Salário".</p>
+
+            <!-- Timer Vibrante de 15 Minutos -->
+            <div class="timer-container">
+                <p>⚡ A OFERTA ESPECIAL DO DIA EXPIRA EM:</p>
+                <div id="timer">15:00</div>
+            </div>
+        </header>
+
+        <!-- Seção de Bônus -->
+        <section class="bonus-section">
+            
+            <!-- Bônus 1 -->
+            <div class="bonus-card">
+                <div class="bonus-image-box">
+                    <img src="PERFIL.jpg" alt="Edmilson Elias Zandamela"> 
+                </div>
+                <div class="bonus-info">
+                    <h3>Bônus 1: Aulas de Marketing e Gestão de Tráfego Pago</h3>
+                    <span class="instructor-info">Formador: Edmilson Elias Zandamela (Formado em Eng. Informática, Marketing e Gestão de Tráfego Pago)</span>
+                    <p>Aprenda na prática as engrenagens por trás das campanhas de anúncios que geram clientes todos os dias. Domínio completo das principais plataformas do mercado explicado de forma simples e direta (Autor: Edmilson E. Zandamela)</p>
+                </div>
+            </div>
+
+            <!-- Bônus 2 -->
+            <div class="bonus-card">
+                <div class="bonus-image-box">
+                    
+                    <img src="29.png" alt="Ebook Marketing Digital">
+                </div>
+                <div class="bonus-info">
+                    <h3>Bônus 2: Acesso ao Ebook sobre Marketing Digital</h3>
+                    <p>O guia definitivo para posicionar sua marca pessoal ou negócio no ambiente online, construindo autoridade sólida e gerando demanda contínua pelos seus produtos ou serviços (Autor: Edmilson E. Zandamela)</p>
+                </div>
+            </div>
+
+            <!-- Bônus 3 -->
+            <div class="bonus-card">
+                <div class="bonus-image-box">
+                    <img src="62.png" alt="Manual Empreendedorismo Digital"> 
+                </div>
+                <div class="bonus-info">
+                    <h3>Bônus 3: Acesso ao Manual sobre Empreendedorismo Digital</h3>
+                    <p>Descubra os pilares fundamentais para estruturar operações digitais escaláveis, automatizadas e altamente rentáveis a partir do conforto da sua casa em Moçambique ((Autor: Edmilson E. Zandamela))</p>
+                </div>
+            </div>
+
+            <!-- Bônus 4 -->
+            <div class="bonus-card">
+                <div class="bonus-image-box">
+                    <img src="63.png" alt="Manual Ideias de Negócios"> 
+                </div>
+                <div class="bonus-info">
+                    <h3>Bônus 4: Acesso ao Manual sobre Ideias de Negócios</h3>
+                    <p>Uma curadoria exclusiva contendo dezenas de modelos de negócios validados e de baixo investimento inicial para você começar a faturar no curto prazo (Autor: Edmilson E. Zandamela)</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- CTA Final de Resgate -->
+        <div class="cta-container">
+            <a href="https://wa.me/258847648786?text=Olá!%20Já%20garanti%20o%20meu%20manual%20e%20quero%20resgatar%20meus%20bônus." class="cta-btn" target="_blank">Resgatar Todos os Bônus Agora</a>
+        </div>
+    </div>
+
+    <!-- JavaScript para Timer de 15 Minutos e 20 Variações de Social Proof -->
+    <script>
+        /* Timer Regressivo de 15 Minutos */
+        let time = 15 * 60;
+        const timerDisplay = document.getElementById('timer');
+
+        const countdown = setInterval(() => {
+            let minutes = Math.floor(time / 60);
+            let seconds = time % 60;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            timerDisplay.textContent = `${minutes}:${seconds}`;
+            
+            if (time > 0) {
+                time--;
+            } else {
+                clearInterval(countdown);
+                timerDisplay.textContent = "00:00";
+            }
+        }, 1000);
+
+        /* 20 Variações de Notificações de Vendas / Resgates (Social Proof) */
+        const variations = [
+            "Helder Vasco de Maputo acabou de Obter o bónus há 5 minutos.",
+            "Célia Matavel da Beira acabou de resgatar o pacote há 2 minutos.",
+            "Valter Mondlane de Nampula garantiu os 4 bônus há instantes.",
+            "Dércio Tembe de Matola acabou de desbloquear todos os manuais.",
+            "Rute Macamo de Quelimane obteve os bônus há 4 minutos.",
+            "Armindo Chirinda de Tete garantiu o acesso ao conteúdo há pouco.",
+            "Jéssica Cossa de Inhambane acabou de resgatar a oferta especial.",
+            "Marcelo Sitoe de Chimoio obteve o bônus do Edmilson há 3 minutos.",
+            "Eunice Nhantumbo de Xai-Xai garantiu o pacote completo.",
+            "Gildo Mabote de Pemba acabou de obter os manuais há 6 minutos.",
+            "Belmira Bila de Maputo resgatou os bônus há 1 minuto.",
+            "Nelson Nhate de Manica garantiu o acesso aos materiais.",
+            "Olga Chauque de Inhambane acabou de obter o bônus de tráfego.",
+            "Titos Matsinhe da Beira resgatou o kit completo há 7 minutos.",
+            "Zulmira Massango de Nampula garantiu a oferta do dia.",
+            "Ernesto Guambe de Chibuto acabou de obter os manuais.",
+            "Fátima Muianga de Nacala resgatou os bônus há 4 minutos.",
+            "Hélio Matusse de Maputo garantiu o acesso completo há instantes.",
+            "Dalila Tembe de Xai-Xai obteve os manuais há 2 minutos.",
+            "Stélio Jone de Quelimane acabou de resgatar todos os bônus."
+        ];
+
+        const popupText = document.getElementById('popup-text');
+        let index = 0;
+
+        setInterval(() => {
+            index = (index + 1) % variations.length;
+            popupText.style.opacity = 0;
+            setTimeout(() => {
+                popupText.textContent = variations[index];
+                popupText.style.opacity = 1;
+            }, 500);
+        }, 6000);
+    </script>
+</body>
+</html>
